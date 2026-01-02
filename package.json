@@ -20,7 +20,7 @@
     "util-deprecate": "^1.0.2"
   },
   "scripts": {
-    "dev": "cd Backend && node --watch app.js",
+    "dev": "node --watch app.js",
     "start": "node server"
   },
   "repository": {
