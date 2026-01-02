@@ -25,6 +25,9 @@ app.get('/exibir', (req, res) => {
         descrição: "brasileiro, nascido no interior de SP"
     }
 
+
+
+
     res.json(usuarios)
 
 
