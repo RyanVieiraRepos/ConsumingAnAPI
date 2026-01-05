@@ -2,14 +2,26 @@ const express = require('express')
 const app = express()
 const cors = require('cors')
 
+const mysql = require('mysql')
+const connection = mysql.createConnection({
+    host: "",
+    user: "",
+    password: "",
+    database: ""
+})
+
+
+connection.connect()
+
 app.use(express.json())
-app.use(cors({
-    origin: ["https://user-reg-to-cards.vercel.app/", "https://locahost:3000/npm"]
-}))
+app.use(cors())
+
+const port = process.env.PORT || 3000
 
 
 
-//
+
+//-----------------------------------------------------------//
 
 app.get('/', (req, res) => {
     res.send('Olá Node')
@@ -23,13 +35,12 @@ app.post('/registrar', (req, res) => {
 
 
 //pegar do banco e devolver lista de objetos
-app.get('/exibir', (req, res) => {
+app.get('/getUsers', (req, res) => {
 
     usuarios = {
-        nome: "Ryan",
-        sobrenome: "Vieira Assumpção",
+        nome: "Ryan Vieira Assumpção",
         idade: "20",
-        descrição: "brasileiro, nascido no interior de SP"
+        descrição: "Brasileiro, nascido no interior de SP"
     }
 
     res.json(usuarios)
@@ -40,6 +51,8 @@ app.get('/exibir', (req, res) => {
 
 
 
+
+
+
 module.exports = app
-
-
+//app.listen(3000)
